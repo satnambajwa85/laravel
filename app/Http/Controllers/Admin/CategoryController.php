@@ -8,6 +8,11 @@ use App\Model\user\category;
 
 class CategoryController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
