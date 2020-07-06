@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Model\user\post;
 use App\Model\user\tag;
 use App\Model\user\category;
+use Illuminate\Support\Facades\Auth;
+
 
 class PostController extends Controller
 {
@@ -23,7 +25,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts =  post::all();
+        $posts =  post::all()->where('posted_by', '=' ,Auth::user()->id);
         return view('admin.post.list',compact('posts'));
     }
 
@@ -59,7 +61,7 @@ class PostController extends Controller
         $post->image = $request->image;
         $post->body = $request->body;
         $post->status = $request->status;
-        $post->posted_by = 1;
+        $post->posted_by = Auth::user()->id;
         
         //return $post;
         $post->save();
@@ -116,6 +118,7 @@ class PostController extends Controller
         $post->image = $request->image;
         $post->body = $request->body;
         $post->status = $request->status;
+        $post->posted_by = Auth::user()->id;
         $post->save();
 
         $post->categories()->sync($request->categories,$post->id);
