@@ -9,11 +9,9 @@
             <div class="col-md-10">
                 <div class="menu">
                     <ul>
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">lifestyle</a></li>
-                        <li><a href="#">Food</a></li>
-                        <li><a href="#">Nature</a></li>
-                        <li><a href="#">photography</a></li>
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="/login">login</a></li>
+                        <li><a href="/register">Register</a></li>
                     </ul>
                 </div>
             </div>
